@@ -36,7 +36,20 @@ module RailsApp
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
 
+    config.i18n.default_locale = :es
+
+    # Limit available locales to only Spanish
+    config.i18n.available_locales = [:es]
+
     # Don't generate system test files.
     config.generators.system_tests = nil
+
+    config.generators do |g|
+      g.template_engine :haml # or :erb if you're using ERB
+      g.scaffold_controller = "scaffold_controller"
+      g.helper false
+      g.assets false
+      g.stylesheets false
+    end
   end
 end

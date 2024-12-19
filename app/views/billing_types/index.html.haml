@@ -1,0 +1,20 @@
+%h1.text-center.mt-4 Listado de Tipos de Facturación
+
+%div.table-responsive
+  %table.table.table-bordered.table-striped
+    %thead.thead-dark
+      %tr
+        %th Nombre
+        %th Acciones
+
+    %tbody
+      - @billing_types.each do |billing_type|
+        %tr
+          %td= billing_type.name
+          %td
+            = link_to 'Ver', billing_type, class: 'btn btn-sm btn-primary'
+            = link_to 'Editar', edit_billing_type_path(billing_type), class: 'btn btn-sm btn-warning mx-2'
+            = link_to 'Eliminar', billing_type, method: :delete, data: { confirm: '¿Estás seguro?' }, class: 'btn btn-sm btn-danger'
+
+%div.mt-4
+  = link_to 'Nuevo Tipo de Facturación', new_billing_type_path, class: 'btn btn-success'

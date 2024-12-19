@@ -1,0 +1,23 @@
+%h1.text-center.mt-4 Detalle del Tipo de Documento
+
+%div.card.shadow.mt-4
+  %div.card-header.bg-primary.text-white
+    Detalles
+  %div.card-body
+    %p
+      %strong Nombre: 
+      = @document_type.name
+    %p
+      %strong Nombre Corto: 
+      = @document_type.short_name
+    %p
+      %strong Orden de Visualización: 
+      = @document_type.display_order
+    %p
+      %strong Activo: 
+      = @document_type.active ? "Sí" : "No"
+
+%div.mt-4
+  = link_to "Editar", edit_document_type_path(@document_type), class: "btn btn-warning"
+  = link_to "Eliminar", document_type_path(@document_type), method: :delete, data: { confirm: "¿Estás seguro?" }, class: "btn btn-danger ml-2"
+  = link_to "Volver", document_types_path, class: "btn btn-secondary ml-2"

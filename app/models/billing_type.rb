@@ -1,0 +1,2 @@
+class BillingType < ApplicationRecord
+end
