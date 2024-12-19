@@ -1,0 +1,9 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @billing_type.name
+
+= link_to 'Edit', edit_billing_type_path(@billing_type)
+\|
+= link_to 'Back', billing_types_path

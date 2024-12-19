@@ -1,0 +1,21 @@
+%h1 Listing billing_types
+
+%table
+  %thead
+    %tr
+      %th Name
+      %th
+      %th
+      %th
+
+  %tbody
+    - @billing_types.each do |billing_type|
+      %tr
+        %td= billing_type.name
+        %td= link_to 'Show', billing_type
+        %td= link_to 'Edit', edit_billing_type_path(billing_type)
+        %td= link_to 'Destroy', billing_type, method: :delete, data: { confirm: 'Are you sure?' }
+
+%br
+
+= link_to 'New Billing type', new_billing_type_path
