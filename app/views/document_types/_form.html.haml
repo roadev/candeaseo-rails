@@ -1,14 +1,22 @@
--# frozen_string_literal: true
-= simple_form_for @document_type, wrapper: :bootstrap do |f|
-  = f.error_notification
-  = f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present?
+= form_with(model: document_type, local: true) do |f|
+  %div.row
+    %div.col-md-6.form-group
+      = f.label :name, "Nombre", class: "form-label"
+      = f.text_field :name, class: "form-control", placeholder: "Ingrese el nombre"
 
-  .form-inputs
-    = f.input :name, label: "Name", input_html: { class: 'form-control' }
-    = f.input :short_name, label: "Short Name", input_html: { class: 'form-control' }
-    = f.input :display_order, label: "Display Order", input_html: { class: 'form-control' }
-    = f.input :active, as: :boolean, label: "Active", input_html: { class: 'form-check-input' }, wrapper_html: { class: 'form-check' }
+    %div.col-md-6.form-group
+      = f.label :short_name, "Nombre Corto", class: "form-label"
+      = f.text_field :short_name, class: "form-control", placeholder: "Ingrese el nombre corto"
 
-  .form-actions
-    = f.button :submit, class: 'btn btn-primary'
+  %div.row
+    %div.col-md-6.form-group
+      = f.label :display_order, "Orden de Visualización", class: "form-label"
+      = f.number_field :display_order, class: "form-control", placeholder: "Ingrese el orden"
 
+    %div.col-md-6.form-check
+      = f.check_box :active, class: "form-check-input"
+      = f.label :active, "Activo", class: "form-check-label"
+
+  %div.mt-3
+    = f.submit "Guardar", class: "btn btn-primary"
+    = link_to "Cancelar", document_types_path, class: "btn btn-secondary ml-2"

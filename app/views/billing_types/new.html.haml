@@ -1,5 +1,6 @@
-%h1 New billing_type
+%h1.text-center.mt-4 Nuevo Tipo de Facturación
 
-= render 'form'
+= render 'form', billing_type: @billing_type
 
-= link_to 'Back', billing_types_path
+%div.mt-4
+-#   = link_to 'Volver', billing_types_path, class: 'btn btn-secondary'

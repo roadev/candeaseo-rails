@@ -1,5 +1,5 @@
 class DocumentTypesController < ApplicationController
-  before_action :set_document_type, only: %i[ show edit update destroy ]
+  before_action :set_document_type, only: %i[show edit update destroy]
 
   # GET /document_types or /document_types.json
   def index
@@ -23,48 +23,40 @@ class DocumentTypesController < ApplicationController
   def create
     @document_type = DocumentType.new(document_type_params)
 
-    respond_to do |format|
-      if @document_type.save
-        format.html { redirect_to @document_type, notice: "Document type was successfully created." }
-        format.json { render :show, status: :created, location: @document_type }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @document_type.errors, status: :unprocessable_entity }
-      end
+    if @document_type.save
+      redirect_to document_types_path, notice: 'El tipo de documento fue creado con éxito.'
+    else
+      render :new, status: :unprocessable_entity
     end
   end
 
   # PATCH/PUT /document_types/1 or /document_types/1.json
   def update
-    respond_to do |format|
-      if @document_type.update(document_type_params)
-        format.html { redirect_to @document_type, notice: "Document type was successfully updated." }
-        format.json { render :show, status: :ok, location: @document_type }
-      else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @document_type.errors, status: :unprocessable_entity }
-      end
+    if @document_type.update(document_type_params)
+      redirect_to document_types_path, notice: "El tipo de documento fue actualizado con éxito."
+    else
+      render :edit, status: :unprocessable_entity
     end
   end
 
   # DELETE /document_types/1 or /document_types/1.json
   def destroy
-    @document_type.destroy!
-
-    respond_to do |format|
-      format.html { redirect_to document_types_path, status: :see_other, notice: "Document type was successfully destroyed." }
-      format.json { head :no_content }
+    if @document_type.destroy
+      redirect_to document_types_path, status: :see_other, notice: "El tipo de documento fue eliminado con éxito."
+    else
+      redirect_to document_types_path, alert: "No se pudo eliminar el tipo de documento."
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_document_type
-      @document_type = DocumentType.find(params.expect(:id))
-    end
 
-    # Only allow a list of trusted parameters through.
-    def document_type_params
-      params.expect(document_type: [ :name, :short_name, :display_order, :active ])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_document_type
+    @document_type = DocumentType.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def document_type_params
+    params.require(:document_type).permit(:name, :short_name, :display_order, :active)
+  end
 end

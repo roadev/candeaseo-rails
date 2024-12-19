@@ -1,9 +1,14 @@
-%p#notice= notice
+%h1.text-center.mt-4 Detalle del Tipo de Facturación
 
-%p
-  %b Name:
-  = @billing_type.name
+%div.card.shadow.mt-4
+  %div.card-header.bg-primary.text-white
+    Detalles
+  %div.card-body
+    %p
+      %strong Nombre:
+      = @billing_type.name
 
-= link_to 'Edit', edit_billing_type_path(@billing_type)
-\|
-= link_to 'Back', billing_types_path
+%div.mt-4
+  = link_to 'Editar', edit_billing_type_path(@billing_type), class: 'btn btn-warning'
+  = link_to 'Eliminar', @billing_type, method: :delete, data: { confirm: '¿Estás seguro?' }, class: 'btn btn-danger ml-2'
+  = link_to 'Volver', billing_types_path, class: 'btn btn-secondary ml-2'
