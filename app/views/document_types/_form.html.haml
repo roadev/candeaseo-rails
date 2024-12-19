@@ -1,0 +1,14 @@
+-# frozen_string_literal: true
+= simple_form_for @document_type, wrapper: :bootstrap do |f|
+  = f.error_notification
+  = f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present?
+
+  .form-inputs
+    = f.input :name, label: "Name", input_html: { class: 'form-control' }
+    = f.input :short_name, label: "Short Name", input_html: { class: 'form-control' }
+    = f.input :display_order, label: "Display Order", input_html: { class: 'form-control' }
+    = f.input :active, as: :boolean, label: "Active", input_html: { class: 'form-check-input' }, wrapper_html: { class: 'form-check' }
+
+  .form-actions
+    = f.button :submit, class: 'btn btn-primary'
+

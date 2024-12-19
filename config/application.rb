@@ -38,5 +38,13 @@ module RailsApp
 
     # Don't generate system test files.
     config.generators.system_tests = nil
+
+    config.generators do |g|
+      g.template_engine :haml # or :erb if you're using ERB
+      g.scaffold_controller = "scaffold_controller"
+      g.helper false
+      g.assets false
+      g.stylesheets false
+    end
   end
 end

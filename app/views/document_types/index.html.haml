@@ -1,0 +1,27 @@
+%h1 Listing document_types
+
+%table
+  %thead
+    %tr
+      %th Name
+      %th Short name
+      %th Display order
+      %th Active
+      %th
+      %th
+      %th
+
+  %tbody
+    - @document_types.each do |document_type|
+      %tr
+        %td= document_type.name
+        %td= document_type.short_name
+        %td= document_type.display_order
+        %td= document_type.active
+        %td= link_to 'Show', document_type
+        %td= link_to 'Edit', edit_document_type_path(document_type)
+        %td= link_to 'Destroy', document_type, method: :delete, data: { confirm: 'Are you sure?' }
+
+%br
+
+= link_to 'New Document type', new_document_type_path

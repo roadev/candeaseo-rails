@@ -1,0 +1,18 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @document_type.name
+%p
+  %b Short name:
+  = @document_type.short_name
+%p
+  %b Display order:
+  = @document_type.display_order
+%p
+  %b Active:
+  = @document_type.active
+
+= link_to 'Edit', edit_document_type_path(@document_type)
+\|
+= link_to 'Back', document_types_path
