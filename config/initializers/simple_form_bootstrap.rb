@@ -290,6 +290,18 @@ SimpleForm.setup do |config|
 
 
   # bootstrap custom forms
+  config.wrappers :bootstrap, tag: 'div', class: 'form-group', error_class: 'has-error' do |b|
+    b.use :html5
+    b.use :placeholder
+    b.use :label, class: 'control-label'
+  
+    b.wrapper tag: 'div', class: 'col-sm-10' do |input|
+      input.use :input, class: 'form-control'
+      input.use :error, wrap_with: { tag: 'span', class: 'help-block text-danger' }
+      input.use :hint, wrap_with: { tag: 'p', class: 'help-block' }
+    end
+  end
+  
   #
   # custom input switch for boolean
   config.wrappers :custom_boolean_switch, class: 'mb-3' do |b|
