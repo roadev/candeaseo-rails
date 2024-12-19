@@ -1,0 +1,6 @@
+%h1.text-center.mt-4 Nuevo Género
+
+= render 'form', gender: @gender
+
+%div.mt-4
+  = link_to 'Volver', genders_path, class: 'btn btn-secondary'

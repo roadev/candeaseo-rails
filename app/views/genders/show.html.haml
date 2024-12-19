@@ -1,0 +1,23 @@
+%h1.text-center.mt-4 Detalle del Género
+
+%div.card.shadow.mt-4
+  %div.card-header.bg-primary.text-white
+    Detalles
+  %div.card-body
+    %p
+      %strong Nombre:
+      = @gender.name
+    %p
+      %strong Nombre Corto:
+      = @gender.short_name
+    %p
+      %strong Orden:
+      = @gender.display_order
+    %p
+      %strong Activo:
+      = @gender.active ? "Sí" : "No"
+
+%div.mt-4
+  = link_to 'Editar', edit_gender_path(@gender), class: 'btn btn-warning'
+  = link_to 'Eliminar', @gender, method: :delete, data: { confirm: '¿Estás seguro?' }, class: 'btn btn-danger ml-2'
+  = link_to 'Volver', genders_path, class: 'btn btn-secondary ml-2'
