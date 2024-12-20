@@ -1,4 +1,11 @@
 es:
+  menu:
+    document_types: "Tipos de Documento"
+    billing_types: "Tipos de Facturación"
+    genders: "Géneros"
+    roles: "Roles"
+    home: "Inicio"
+
   activerecord:
     models:
       billing_type: "Tipo de Facturación"

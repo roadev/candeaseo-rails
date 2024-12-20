@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :regions
+  resources :permissions
   resources :roles
   resources :genders
   resources :document_types

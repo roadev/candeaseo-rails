@@ -8,20 +8,20 @@
     = javascript_include_tag "application"
   %body.d-flex
     %nav.sidebar.bg-dark.text-white
-      %div.sidebar-header.text-center.py-3
-        = image_tag "logo.png", alt: "Candeaseo", class: "img-fluid mb-3", style: "max-height: 60px;"
-        %h5 MyApp
+      %div.sidebar-header.text-center
+        = image_tag "logo.png", alt: "Logo de CandeAseo", class: "img-fluid mb-3", style: "max-height: 60px;"
       %ul.nav.flex-column
         %li.nav-item
-          = link_to "Document Types", document_types_path, class: "nav-link text-white"
+          = link_to t("menu.document_types"), document_types_path, class: "nav-link text-white"
         %li.nav-item
-          = link_to "Billing Types", billing_types_path, class: "nav-link text-white"
+          = link_to t("menu.billing_types"), billing_types_path, class: "nav-link text-white"
         %li.nav-item
-          = link_to "Genders", genders_path, class: "nav-link text-white"
+          = link_to t("menu.genders"), genders_path, class: "nav-link text-white"
         %li.nav-item
-          = link_to "Roles", roles_path, class: "nav-link text-white"
+          = link_to t("menu.roles"), roles_path, class: "nav-link text-white"
         %li.nav-item
-          = link_to "Home", root_path, class: "nav-link text-white"
+          = link_to t("menu.home"), root_path, class: "nav-link text-white"
+
 
 
     %div.content.flex-grow-1
