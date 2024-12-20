@@ -5,6 +5,8 @@ es:
     genders: "Géneros"
     roles: "Roles"
     home: "Inicio"
+    regions: "Regiones"
+    countries: "Países"
 
   activerecord:
     models:

@@ -10,11 +10,32 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2024_12_20_004158) do
+ActiveRecord::Schema[8.0].define(version: 2024_12_20_010022) do
   create_table "billing_types", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "countries", force: :cascade do |t|
+    t.string "name"
+    t.string "short_name"
+    t.string "native_name"
+    t.string "iso2"
+    t.string "iso3"
+    t.string "phone_code"
+    t.string "currency"
+    t.string "currency_name"
+    t.string "currency_symbol"
+    t.string "timezone"
+    t.text "translations"
+    t.string "flag"
+    t.string "wiki_data_id"
+    t.integer "region_id", null: false
+    t.boolean "active"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["region_id"], name: "index_countries_on_region_id"
   end
 
   create_table "document_types", force: :cascade do |t|
@@ -59,4 +80,6 @@ ActiveRecord::Schema[8.0].define(version: 2024_12_20_004158) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  add_foreign_key "countries", "regions"
 end

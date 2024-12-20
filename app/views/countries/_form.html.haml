@@ -1,0 +1,26 @@
+= form_with(model: country, local: true) do |f|
+  %div.row
+    %div.col-md-6.form-group
+      = f.label :name, "Nombre", class: "form-label"
+      = f.text_field :name, class: "form-control", placeholder: "Ingrese el nombre del país"
+
+    %div.col-md-6.form-group
+      = f.label :iso_code, "Código ISO", class: "form-label"
+      = f.text_field :iso_code, class: "form-control", placeholder: "Ingrese el código ISO"
+
+  %div.row.mt-3
+    %div.col-md-6.form-group
+      = f.label :currency_name, "Nombre de la Moneda", class: "form-label"
+      = f.text_field :currency_name, class: "form-control", placeholder: "Ingrese el nombre de la moneda"
+
+    %div.col-md-6.form-group
+      = f.label :currency_symbol, "Símbolo de la Moneda", class: "form-label"
+      = f.text_field :currency_symbol, class: "form-control", placeholder: "Ingrese el símbolo de la moneda"
+
+  %div.col-md-6.form-check.mt-3
+    = f.check_box :active, class: "form-check-input"
+    = f.label :active, "Activo", class: "form-check-label"
+
+  %div.mt-3
+    = f.submit "Guardar", class: "btn btn-primary"
+    = link_to "Cancelar", countries_path, class: "btn btn-secondary ml-2"
