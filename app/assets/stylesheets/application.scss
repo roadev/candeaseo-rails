@@ -1,0 +1,119 @@
+/*
+ * This is a manifest file that'll be compiled into application.css.
+ *
+ * With Propshaft, assets are served efficiently without preprocessing steps. You can still include
+ * application-wide styles in this file, but keep in mind that CSS precedence will follow the standard
+ * cascading order, meaning styles declared later in the document or manifest will override earlier ones,
+ * depending on specificity.
+ *
+ * Consider organizing styles into separate files for maintainability.
+ */
+ @import "bootstrap/scss/bootstrap";
+
+/* Global body styles */
+body.d-flex {
+  min-height: 100vh;
+  margin: 0;
+}
+
+/* Sidebar (Drawer) */
+/* Sidebar (Drawer) */
+.sidebar {
+  width: 240px;
+  height: 100vh;
+  position: fixed;
+  left: 0;
+  top: 0;
+  background-color: #343a40; /* Dark background */
+  color: white;
+  overflow-y: auto;
+  z-index: 1030;
+  border-right: 1px solid #495057;
+
+  .sidebar-header {
+    padding: 1.5rem;
+    background-color: #212529;
+    text-align: center;
+  
+    img {
+      max-height: 100px; /* Increase to desired size */
+      width: auto; /* Maintain aspect ratio */
+      margin-bottom: 15px;
+    }
+
+    h5 {
+      font-size: 1.25rem;
+      margin: 0;
+      color: #ffffff; /* Ensure text is visible on dark background */
+    }
+  }
+
+  .nav-link {
+    font-size: 1rem;
+    color: white;
+    padding: 0.75rem 1.25rem;
+
+    &:hover {
+      background-color: #495057; /* Subtle hover effect */
+      color: #f8f9fa;
+    }
+  }
+
+  .nav-item.active .nav-link {
+    font-weight: bold;
+    color: #f8f9fa;
+  }
+}
+
+/* Main Content */
+.content {
+  margin-left: 240px;
+  padding: 1rem;
+}
+ 
+
+/* Topbar */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1040;
+  margin-left: 240px;
+  border-bottom: 1px solid #dee2e6;
+
+  .navbar-toggler {
+    margin-right: 1rem;
+  }
+
+  .navbar-nav {
+    .nav-item .nav-link {
+      color: #333;
+
+      &:hover {
+        color: #0056b3;
+      }
+    }
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .sidebar {
+    position: absolute;
+    z-index: 1040;
+    transform: translateX(-240px);
+    transition: transform 0.3s ease-in-out;
+
+    &.active {
+      transform: translateX(0);
+    }
+  }
+
+  .content {
+    margin-left: 0;
+  }
+
+  .navbar {
+    margin-left: 0;
+  }
+}
+

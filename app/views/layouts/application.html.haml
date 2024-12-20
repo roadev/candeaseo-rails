@@ -6,17 +6,32 @@
     = csp_meta_tag
     = stylesheet_link_tag "application", media: "all"
     = javascript_include_tag "application"
-  %body
-    %nav.navbar.navbar-expand-lg.navbar-light.bg-light
-      %div.container
-        = link_to "MyApp", root_path, class: "navbar-brand"
-        %button.navbar-toggler{"aria-controls" => "navbarNav", "aria-expanded" => "false", "aria-label" => "Toggle navigation", "data-bs-toggle" => "collapse", "data-bs-target" => "#navbarNav"}
-          %span.navbar-toggler-icon
-        %div#navbarNav.collapse.navbar-collapse
-          %ul.navbar-nav
-            %li.nav-item
-              = link_to "Home", root_path, class: "nav-link"
-            %li.nav-item
-              = link_to "Document Types", document_types_path, class: "nav-link"
-    %div.container.mt-4
-      = yield
+  %body.d-flex
+    %nav.sidebar.bg-dark.text-white
+      %div.sidebar-header.text-center.py-3
+        = image_tag "logo.png", alt: "Candeaseo", class: "img-fluid mb-3", style: "max-height: 60px;"
+        %h5 MyApp
+      %ul.nav.flex-column
+        %li.nav-item
+          = link_to "Document Types", document_types_path, class: "nav-link text-white"
+        %li.nav-item
+          = link_to "Billing Types", billing_types_path, class: "nav-link text-white"
+        %li.nav-item
+          = link_to "Genders", genders_path, class: "nav-link text-white"
+        %li.nav-item
+          = link_to "Roles", roles_path, class: "nav-link text-white"
+        %li.nav-item
+          = link_to "Home", root_path, class: "nav-link text-white"
+
+
+    %div.content.flex-grow-1
+      %nav.navbar.navbar-expand-lg.navbar-light.bg-light.shadow-sm
+        %div.container
+          %button.navbar-toggler{"aria-controls" => "navbarNav", "aria-expanded" => "false", "aria-label" => "Toggle navigation", "data-bs-toggle" => "collapse", "data-bs-target" => "#navbarNav"}
+            %span.navbar-toggler-icon
+          %div#navbarNav.collapse.navbar-collapse
+            %ul.navbar-nav.ml-auto
+              %li.nav-item
+                -# = link_to "Logout", logout_path, class: "nav-link"
+      %div.container.mt-4
+        = yield
