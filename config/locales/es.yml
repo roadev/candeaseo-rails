@@ -8,6 +8,7 @@ es:
     regions: "Regiones"
     countries: "Países"
     identity_document_types: "Tipos de identificación"
+    states: "Departamentos"
 
   activerecord:
     models:
@@ -19,7 +20,7 @@ es:
       region: "Región"
       country: "País"
       identity_document_type: "Tipo de Documento de Identidad"
-      state: "Estado"
+      state: "Departamento"
       subregion: "Subregión"
       city: "Ciudad"
       township: "Municipio"
@@ -96,7 +97,7 @@ es:
       city:
         name: "Nombre"
         country: "País"
-        state: "Estado"
+        state: "Departamento"
         translations: "Traducciones"
         wiki_data_id: "ID de WikiData"
         active: "Activo"

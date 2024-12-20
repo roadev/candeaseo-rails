@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :states
   resources :identity_document_types
   resources :countries
   resources :regions
