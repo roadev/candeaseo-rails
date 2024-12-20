@@ -1,0 +1,26 @@
+%h1.text-center.mt-4 Listado de Subregiones
+
+%div.table-responsive
+  %table.table.table-bordered.table-striped
+    %thead.thead-dark
+      %tr
+        %th Nombre
+        %th Región
+        %th Creado Por
+        %th Activo
+        %th Acciones
+
+    %tbody
+      - @subregions.each do |subregion|
+        %tr
+          %td= subregion.name
+          %td= subregion.region&.name
+          %td= subregion.created_by
+          %td= subregion.active ? "Sí" : "No"
+          %td
+            = link_to 'Ver', subregion, class: 'btn btn-sm btn-primary'
+            = link_to 'Editar', edit_subregion_path(subregion), class: 'btn btn-sm btn-warning mx-2'
+            = link_to 'Eliminar', subregion, method: :delete, data: { confirm: '¿Estás seguro?' }, class: 'btn btn-sm btn-danger'
+
+%div.mt-4
+  = link_to 'Nueva Subregión', new_subregion_path, class: 'btn btn-success'

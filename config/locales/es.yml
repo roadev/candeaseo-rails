@@ -9,6 +9,8 @@ es:
     countries: "Países"
     identity_document_types: "Tipos de identificación"
     states: "Departamentos"
+    subregions: "Subregiones"
+    cities: "Ciudades"
 
   activerecord:
     models:

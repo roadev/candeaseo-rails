@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2024_12_20_051212) do
+ActiveRecord::Schema[8.0].define(version: 2024_12_20_052447) do
   create_table "billing_types", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
@@ -102,6 +102,19 @@ ActiveRecord::Schema[8.0].define(version: 2024_12_20_051212) do
     t.index ["country_id"], name: "index_states_on_country_id"
   end
 
+  create_table "subregions", force: :cascade do |t|
+    t.string "name"
+    t.integer "country_id", null: false
+    t.text "translations"
+    t.string "flag"
+    t.string "wiki_data_id"
+    t.boolean "active"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["country_id"], name: "index_subregions_on_country_id"
+  end
+
   add_foreign_key "countries", "regions"
   add_foreign_key "states", "countries"
+  add_foreign_key "subregions", "countries"
 end
