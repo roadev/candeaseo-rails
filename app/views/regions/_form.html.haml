@@ -1,0 +1,22 @@
+= form_with(model: region, local: true) do |f|
+  %div.row
+    %div.col-md-6.form-group
+      = f.label :name, "Nombre", class: "form-label"
+      = f.text_field :name, class: "form-control", placeholder: "Ingrese el nombre de la región"
+
+    %div.col-md-6.form-group
+      = f.label :description, "Descripción", class: "form-label"
+      = f.text_area :description, class: "form-control", placeholder: "Ingrese una descripción", rows: 3
+
+  %div.row.mt-3
+    %div.col-md-6.form-group
+      = f.label :created_by, "Creado Por", class: "form-label"
+      = f.text_field :created_by, class: "form-control", placeholder: "Ingrese el creador (si aplica)"
+
+    %div.col-md-6.form-check
+      = f.check_box :active, class: "form-check-input"
+      = f.label :active, "Activo", class: "form-check-label"
+
+  %div.mt-3
+    = f.submit "Guardar", class: "btn btn-primary"
+    = link_to "Cancelar", regions_path, class: "btn btn-secondary ml-2"

@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  resources :regions
+  resources :permissions
+  resources :roles
+  resources :genders
   resources :document_types
   resources :billing_types
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
@@ -13,4 +17,6 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   root "document_types#index"
+
+  
 end

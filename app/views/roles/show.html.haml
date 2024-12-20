@@ -1,0 +1,20 @@
+%h1.text-center.mt-4 Detalle del Rol
+
+%div.card.shadow.mt-4
+  %div.card-header.bg-primary.text-white
+    Detalles
+  %div.card-body
+    %p
+      %strong Nombre:
+      = @role.name
+    %p
+      %strong Descripción:
+      = @role.description
+    %p
+      %strong Activo:
+      = @role.active ? "Sí" : "No"
+
+%div.mt-4
+  = link_to 'Editar', edit_role_path(@role), class: 'btn btn-warning'
+  = link_to 'Eliminar', @role, method: :delete, data: { confirm: '¿Estás seguro?' }, class: 'btn btn-danger ml-2'
+  = link_to 'Volver', roles_path, class: 'btn btn-secondary ml-2'

@@ -1,0 +1,20 @@
+%h1.text-center.mt-4 Detalle del Permiso
+
+%div.card.shadow.mt-4
+  %div.card-header.bg-primary.text-white
+    Detalles
+  %div.card-body
+    %p
+      %strong Nombre:
+      = @permission.name
+    %p
+      %strong Descripción:
+      = @permission.description
+    %p
+      %strong Activo:
+      = @permission.active ? "Sí" : "No"
+
+%div.mt-4
+  = link_to 'Editar', edit_permission_path(@permission), class: 'btn btn-warning'
+  = link_to 'Eliminar', @permission, method: :delete, data: { confirm: '¿Estás seguro?' }, class: 'btn btn-danger ml-2'
+  = link_to 'Volver', permissions_path, class: 'btn btn-secondary ml-2'
