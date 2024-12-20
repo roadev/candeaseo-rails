@@ -1,28 +1,49 @@
-%h1.text-center.mt-4 Listado de Países
+%h1 Listing countries
 
-%div.table-responsive
-  %table.table.table-bordered.table-striped
-    %thead.thead-dark
+%table
+  %thead
+    %tr
+      %th Name
+      %th Short name
+      %th Native name
+      %th Iso2
+      %th Iso3
+      %th Phone code
+      %th Currency
+      %th Currency name
+      %th Currency symbol
+      %th Timezone
+      %th Translations
+      %th Flag
+      %th Wiki data
+      %th Region
+      %th Active
+      %th
+      %th
+      %th
+
+  %tbody
+    - @countries.each do |country|
       %tr
-        %th Nombre
-        %th Código ISO
-        %th Moneda
-        %th Símbolo
-        %th Activo
-        %th Acciones
+        %td= country.name
+        %td= country.short_name
+        %td= country.native_name
+        %td= country.iso2
+        %td= country.iso3
+        %td= country.phone_code
+        %td= country.currency
+        %td= country.currency_name
+        %td= country.currency_symbol
+        %td= country.timezone
+        %td= country.translations
+        %td= country.flag
+        %td= country.wiki_data_id
+        %td= country.region
+        %td= country.active
+        %td= link_to 'Show', country
+        %td= link_to 'Edit', edit_country_path(country)
+        %td= link_to 'Destroy', country, method: :delete, data: { confirm: 'Are you sure?' }
 
-    %tbody
-      - @countries.each do |country|
-        %tr
-          %td= country.name
-          %td= country.iso_code
-          %td= country.currency_name
-          %td= country.currency_symbol
-          %td= country.active ? "Sí" : "No"
-          %td
-            = link_to 'Ver', country, class: 'btn btn-sm btn-primary'
-            = link_to 'Editar', edit_country_path(country), class: 'btn btn-sm btn-warning mx-2'
-            = link_to 'Eliminar', country, method: :delete, data: { confirm: '¿Estás seguro?' }, class: 'btn btn-sm btn-danger'
+%br
 
-%div.mt-4
-  = link_to 'Nuevo País', new_country_path, class: 'btn btn-success'
+= link_to 'New Country', new_country_path
