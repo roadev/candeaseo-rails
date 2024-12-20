@@ -7,6 +7,7 @@ es:
     home: "Inicio"
     regions: "Regiones"
     countries: "Países"
+    identity_document_types: "Tipos de identificación"
 
   activerecord:
     models:

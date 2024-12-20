@@ -9,10 +9,14 @@
   %body.d-flex
     %nav.sidebar.bg-dark.text-white
       %div.sidebar-header.text-center
-        = image_tag "logo.png", alt: "Logo de CandeAseo", class: "img-fluid mb-3", style: "max-height: 60px;"
+        = image_tag "logo.png", alt: "Logo de CandeAseo", class: "img-fluid", style: "max-height: 60px;"
       %ul.nav.flex-column
+
         %li.nav-item
           = link_to t("menu.home"), root_path, class: "nav-link text-white"
+
+        %li.nav-item
+          = link_to t("menu.identity_document_types"), identity_document_types_path, class: "nav-link text-white"
         %li.nav-item
           = link_to t("menu.document_types"), document_types_path, class: "nav-link text-white"
         %li.nav-item
@@ -25,8 +29,6 @@
           = link_to t("menu.regions"), regions_path, class: "nav-link text-white"
         %li.nav-item
           = link_to t("menu.countries"), countries_path, class: "nav-link text-white"
-        
-
 
 
     %div.content.flex-grow-1

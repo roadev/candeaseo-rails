@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2024_12_20_010022) do
+ActiveRecord::Schema[8.0].define(version: 2024_12_20_042832) do
   create_table "billing_types", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
@@ -48,6 +48,15 @@ ActiveRecord::Schema[8.0].define(version: 2024_12_20_010022) do
   end
 
   create_table "genders", force: :cascade do |t|
+    t.string "name"
+    t.string "short_name"
+    t.integer "display_order"
+    t.boolean "active"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "identity_document_types", force: :cascade do |t|
     t.string "name"
     t.string "short_name"
     t.integer "display_order"
