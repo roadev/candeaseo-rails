@@ -18,9 +18,10 @@
           %td= identity_document_type.display_order
           %td= identity_document_type.active ? "Sí" : "No"
           %td
-            = link_to 'Ver', identity_document_type, class: 'btn btn-sm btn-primary'
-            = link_to 'Editar', edit_identity_document_type_path(identity_document_type), class: 'btn btn-sm btn-warning mx-2'
-            = link_to 'Eliminar', identity_document_type, method: :delete, data: { confirm: '¿Estás seguro?' }, class: 'btn btn-sm btn-danger'
+            = link_to 'Ver', identity_document_type, class: 'btn btn-primary btn-sm'
+            = link_to 'Editar', edit_identity_document_type_path(identity_document_type), class: 'btn btn-warning btn-sm mx-2'
+            = link_to "Eliminar", identity_document_type_path(identity_document_type), method: :delete, data: { turbo_method: "delete", confirm: "¿Estás seguro?" }, class: "btn btn-danger btn-sm"
+
 
 %div.mt-4
   = link_to 'Nuevo Tipo de Documento de Identidad', new_identity_document_type_path, class: 'btn btn-success'
