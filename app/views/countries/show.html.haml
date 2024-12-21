@@ -21,6 +21,7 @@
       = @country.active ? "Sí" : "No"
 
 %div.mt-4
-  = link_to 'Editar', edit_country_path(@country), class: 'btn btn-warning'
-  = link_to 'Eliminar', @country, method: :delete, data: { confirm: '¿Estás seguro?' }, class: 'btn btn-danger ml-2'
-  = link_to 'Volver', countries_path, class: 'btn btn-secondary ml-2'
+  = link_to 'Editar', edit_country_path(@country), class: 'btn btn-warning btn-sm'
+  = link_to "Eliminar", @country, method: :delete, data: { turbo_method: "delete", confirm: "¿Estás seguro?" }, class: 'btn btn-danger btn-sm'
+  = link_to 'Volver', country_path, class: 'btn btn-secondary btn-sm ml-2'
+
