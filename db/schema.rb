@@ -10,11 +10,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2024_12_20_052447) do
+ActiveRecord::Schema[8.0].define(version: 2024_12_20_190000) do
   create_table "billing_types", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "cities", force: :cascade do |t|
+    t.string "name"
+    t.integer "country_id", null: false
+    t.integer "state_id", null: false
+    t.text "translations"
+    t.string "wiki_data_id"
+    t.boolean "active"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["country_id"], name: "index_cities_on_country_id"
+    t.index ["state_id"], name: "index_cities_on_state_id"
   end
 
   create_table "countries", force: :cascade do |t|
@@ -80,6 +93,8 @@ ActiveRecord::Schema[8.0].define(version: 2024_12_20_052447) do
     t.boolean "active"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.text "description"
+    t.integer "created_by"
   end
 
   create_table "roles", force: :cascade do |t|
@@ -114,6 +129,8 @@ ActiveRecord::Schema[8.0].define(version: 2024_12_20_052447) do
     t.index ["country_id"], name: "index_subregions_on_country_id"
   end
 
+  add_foreign_key "cities", "countries"
+  add_foreign_key "cities", "states"
   add_foreign_key "countries", "regions"
   add_foreign_key "states", "countries"
   add_foreign_key "subregions", "countries"

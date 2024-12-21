@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :cities
   resources :subregions
   resources :states
   resources :identity_document_types

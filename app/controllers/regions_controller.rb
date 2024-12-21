@@ -49,22 +49,19 @@ class RegionsController < ApplicationController
 
   # DELETE /regions/1 or /regions/1.json
   def destroy
-    @region.destroy!
-
-    respond_to do |format|
-      format.html { redirect_to regions_path, status: :see_other, notice: "Region was successfully destroyed." }
-      format.json { head :no_content }
-    end
+    @region = Region.find(params[:id])
+    @region.destroy
+    redirect_to regions_path, notice: "La región fue eliminada con éxito."
   end
+  
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_region
-      @region = Region.find(params.expect(:id))
-    end
 
-    # Only allow a list of trusted parameters through.
-    def region_params
-      params.expect(region: [ :name, :translations, :flag, :active ])
-    end
+  def set_region
+    @region = Region.find(params[:id]) # Correct usage
+  end
+  
+  def region_params
+    params.require(:region).permit(:name, :description, :translations, :flag, :active)
+  end
 end

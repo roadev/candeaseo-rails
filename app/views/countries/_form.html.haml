@@ -1,26 +1,31 @@
-= form_with(model: country, local: true) do |f|
-  %div.row
-    %div.col-md-6.form-group
-      = f.label :name, "Nombre", class: "form-label"
-      = f.text_field :name, class: "form-control", placeholder: "Ingrese el nombre del país"
+= render 'shared/error_messages', object: @country
 
-    %div.col-md-6.form-group
-      = f.label :iso_code, "Código ISO", class: "form-label"
-      = f.text_field :iso_code, class: "form-control", placeholder: "Ingrese el código ISO"
+= form_with(model: @country, local: true) do |f|
+  %div.form-group
+    = f.label :name, "Nombre", class: "form-label"
+    = f.text_field :name, class: "form-control"
 
-  %div.row.mt-3
-    %div.col-md-6.form-group
-      = f.label :currency_name, "Nombre de la Moneda", class: "form-label"
-      = f.text_field :currency_name, class: "form-control", placeholder: "Ingrese el nombre de la moneda"
+  %div.form-group
+    = f.label :iso2, "Código ISO (2)", class: "form-label"
+    = f.text_field :iso2, class: "form-control"
 
-    %div.col-md-6.form-group
-      = f.label :currency_symbol, "Símbolo de la Moneda", class: "form-label"
-      = f.text_field :currency_symbol, class: "form-control", placeholder: "Ingrese el símbolo de la moneda"
 
-  %div.col-md-6.form-check.mt-3
+  %div.form-group
+    = f.label :currency_name, "Nombre de la Moneda", class: "form-label"
+    = f.text_field :currency_name, class: "form-control"
+
+  %div.form-group
+    = f.label :currency_symbol, "Símbolo de la Moneda", class: "form-label"
+    = f.text_field :currency_symbol, class: "form-control"
+
+  %div.form-check
     = f.check_box :active, class: "form-check-input"
     = f.label :active, "Activo", class: "form-check-label"
 
-  %div.mt-3
-    = f.submit "Guardar", class: "btn btn-primary"
-    = link_to "Cancelar", countries_path, class: "btn btn-secondary ml-2"
+  %div.row
+    %div.col-md-6.form-group
+      = f.label :region_id, "Región", class: "form-label"
+      = f.collection_select :region_id, Region.all, :id, :name, { prompt: "Seleccione una región" }, class: "form-control"
+
+
+  = f.submit "Guardar", class: "btn btn-primary"
