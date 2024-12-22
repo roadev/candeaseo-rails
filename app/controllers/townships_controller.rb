@@ -1,5 +1,5 @@
 class TownshipsController < ApplicationController
-  before_action :set_township, only: %i[ show edit update destroy ]
+  before_action :set_township, only: %i[show edit update destroy]
 
   # GET /townships or /townships.json
   def index
@@ -49,23 +49,20 @@ class TownshipsController < ApplicationController
 
   # DELETE /townships/1 or /townships/1.json
   def destroy
-    @township.destroy!
-
+    @township.destroy
     respond_to do |format|
-      format.html { redirect_to townships_path, status: :see_other, notice: "Township was successfully destroyed." }
+      format.html { redirect_to townships_url, notice: "Township was successfully destroyed." }
       format.json { head :no_content }
     end
   end
 
   private
-  # Use callbacks to share common setup or constraints between actions.
+
   def set_township
-    @township = Township.find(params[:id]) # Use params[:id] directly
+    @township = Township.find(params[:id])
   end
 
-  # Only allow a list of trusted parameters through.
   def township_params
     params.require(:township).permit(:name, :description, :city_id, :active)
   end
-
 end

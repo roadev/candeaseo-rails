@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   resources :townships
+  resources :neighborhoods
   resources :cities
   resources :subregions
   resources :states

@@ -1,0 +1,10 @@
+%h1.text-center.mt-4 Nuevo Barrio
+
+%div.card.shadow.mt-4
+  %div.card-header.bg-primary.text-white
+    Crear Barrio
+  %div.card-body
+    = render 'form', neighborhood: @neighborhood
+
+%div.mt-4
+  = link_to 'Volver', neighborhoods_path, class: 'btn btn-secondary'

@@ -11,6 +11,8 @@ es:
     states: "Departamentos"
     subregions: "Subregiones"
     cities: "Ciudades"
+    townships: "Municipios"
+    neighborhoods: "Barrios"
 
   activerecord:
     models:

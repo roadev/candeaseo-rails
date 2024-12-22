@@ -1,4 +1,4 @@
-%h1.text-center.mt-4 Listado de Townships
+%h1.text-center.mt-4 Listado de Municipios
 
 %div.table-responsive
   %table.table.table-bordered.table-striped
@@ -23,4 +23,4 @@
             = link_to "Eliminar", township_path(township), method: :delete, data: { turbo_method: "delete", confirm: "¿Estás seguro?" }, class: "btn btn-danger btn-sm"
 
 %div.mt-4
-  = link_to 'Nueva Township', new_township_path, class: 'btn btn-success'
+  = link_to 'Nuevo Municipio', new_township_path, class: 'btn btn-success'

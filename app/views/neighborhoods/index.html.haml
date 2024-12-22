@@ -1,0 +1,26 @@
+%h1.text-center.mt-4 Listado de Barrios
+
+%div.table-responsive
+  %table.table.table-bordered.table-striped
+    %thead.thead-dark
+      %tr
+        %th Nombre
+        %th Descripción
+        %th Municipio
+        %th Activo
+        %th Acciones
+
+    %tbody
+      - @neighborhoods.each do |neighborhood|
+        %tr
+          %td= neighborhood.name
+          %td= neighborhood.description
+          %td= neighborhood.township.name if neighborhood.township
+          %td= neighborhood.active ? "Sí" : "No"
+          %td
+            = link_to 'Ver', neighborhood, class: 'btn btn-primary btn-sm'
+            = link_to 'Editar', edit_neighborhood_path(neighborhood), class: 'btn btn-warning btn-sm mx-2'
+            = link_to "Eliminar", neighborhood_path(neighborhood), method: :delete, data: { turbo_method: "delete", confirm: "¿Estás seguro?" }, class: "btn btn-danger btn-sm"
+
+%div.mt-4
+  = link_to 'Nuevo Barrio', new_neighborhood_path, class: 'btn btn-success'
