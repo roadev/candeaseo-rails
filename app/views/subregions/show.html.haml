@@ -18,6 +18,6 @@
       = @subregion.active ? "Sí" : "No"
 
 %div.mt-4
-  = link_to 'Editar', edit_subregion_path(@subregion), class: 'btn btn-warning'
-  = link_to 'Eliminar', @subregion, method: :delete, data: { confirm: '¿Estás seguro?' }, class: 'btn btn-danger ml-2'
-  = link_to 'Volver', subregions_path, class: 'btn btn-secondary ml-2'
+  = link_to 'Editar', edit_document_type_path(@subregion), class: 'btn btn-warning btn-sm'
+  = link_to "Eliminar", @document_type, method: :delete, data: { turbo_method: "delete", confirm: "¿Estás seguro?" }, class: "btn btn-danger btn-sm"
+  = link_to 'Volver', document_types_path, class: 'btn btn-secondary btn-sm ml-2'
