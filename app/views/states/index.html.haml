@@ -1,0 +1,26 @@
+%h1.text-center.mt-4 Listado de Departamentos
+
+%div.table-responsive
+  %table.table.table-bordered.table-striped
+    %thead.thead-dark
+      %tr
+        %th Nombre
+        %th País
+        %th Código ISO
+        %th Activo
+        %th Acciones
+
+    %tbody
+      - @states.each do |state|
+        %tr
+          %td= state.name
+          %td= state.country&.name
+          %td= state.iso_code
+          %td= state.active ? "Sí" : "No"
+          %td
+            = link_to 'Ver', state, class: 'btn btn-sm btn-primary'
+            = link_to 'Editar', edit_state_path(state), class: 'btn btn-sm btn-warning mx-2'
+            = link_to 'Eliminar', state, method: :delete, data: { confirm: '¿Estás seguro?' }, class: 'btn btn-sm btn-danger'
+
+%div.mt-4
+  = link_to 'Nuevo Estado', new_state_path, class: 'btn btn-success'

@@ -20,7 +20,8 @@
           %td
             = link_to 'Ver', region, class: 'btn btn-sm btn-primary'
             = link_to 'Editar', edit_region_path(region), class: 'btn btn-sm btn-warning mx-2'
-            = link_to 'Eliminar', region, method: :delete, data: { confirm: '¿Estás seguro?' }, class: 'btn btn-sm btn-danger'
+            = link_to "Eliminar", region_path(region), method: :delete, data: { turbo_method: "delete", confirm: "¿Estás seguro?" }, class: "btn btn-danger"
+
 
 %div.mt-4
   = link_to 'Nueva Región', new_region_path, class: 'btn btn-success'

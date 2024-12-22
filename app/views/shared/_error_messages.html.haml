@@ -1,0 +1,6 @@
+- if object.errors.any?
+  %div.alert.alert-danger
+    %h4= "Se encontraron #{object.errors.count} errores:"
+    %ul
+      - object.errors.full_messages.each do |message|
+        %li= message

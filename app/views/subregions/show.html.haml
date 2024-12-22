@@ -1,0 +1,23 @@
+%h1.text-center.mt-4 Detalle de la Subregión
+
+%div.card.shadow.mt-4
+  %div.card-header.bg-primary.text-white
+    Detalles
+  %div.card-body
+    %p
+      %strong Nombre:
+      = @subregion.name
+    %p
+      %strong Región:
+      = @subregion.region&.name
+    %p
+      %strong Creado Por:
+      = @subregion.created_by
+    %p
+      %strong Activo:
+      = @subregion.active ? "Sí" : "No"
+
+%div.mt-4
+  = link_to 'Editar', edit_document_type_path(@subregion), class: 'btn btn-warning btn-sm'
+  = link_to "Eliminar", @document_type, method: :delete, data: { turbo_method: "delete", confirm: "¿Estás seguro?" }, class: "btn btn-danger btn-sm"
+  = link_to 'Volver', document_types_path, class: 'btn btn-secondary btn-sm ml-2'

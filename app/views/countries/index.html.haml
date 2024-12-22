@@ -1,0 +1,29 @@
+%h1.text-center.mt-4 Listado de Países
+
+%div.table-responsive
+  %table.table.table-bordered.table-striped
+    %thead.thead-dark
+      %tr
+        %th Nombre
+        %th Código ISO
+        %th Moneda
+        %th Símbolo
+        %th Activo
+        %th Acciones
+
+    %tbody
+      - @countries.each do |country|
+        %tr
+          %td= country.name
+          %td= country.iso2
+          %td= country.currency_name
+          %td= country.currency_symbol
+          %td= country.active ? "Sí" : "No"
+          %td
+            = link_to 'Ver', country, class: 'btn btn-primary btn-sm'
+            = link_to 'Editar', edit_country_path(country), class: 'btn btn-warning btn-sm mx-2'
+            = link_to "Eliminar", country_path(country), method: :delete, data: { turbo_method: "delete", confirm: "¿Estás seguro?" }, class: "btn btn-danger btn-sm"
+
+
+%div.mt-4
+  = link_to 'Nuevo País', new_country_path, class: 'btn btn-success'

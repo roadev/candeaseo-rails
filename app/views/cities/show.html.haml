@@ -1,0 +1,23 @@
+%h1.text-center.mt-4 Detalle de la Ciudad
+
+%div.card.shadow.mt-4
+  %div.card-header.bg-primary.text-white
+    Detalles
+  %div.card-body
+    %p
+      %strong Nombre:
+      = @city.name
+    %p
+      %strong Estado:
+      = @city.state&.name
+    %p
+      %strong País:
+      = @city.country&.name
+    %p
+      %strong Activo:
+      = @city.active ? "Sí" : "No"
+
+%div.mt-4
+  = link_to 'Editar', edit_city_path(@city), class: 'btn btn-warning'
+  = link_to 'Eliminar', @city, method: :delete, data: { confirm: '¿Estás seguro?' }, class: 'btn btn-danger ml-2'
+  = link_to 'Volver', cities_path, class: 'btn btn-secondary ml-2'
