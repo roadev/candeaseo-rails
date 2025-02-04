@@ -1,0 +1,10 @@
+%h1.text-center.mt-4 Nuevo Municipio
+
+%div.card.shadow.mt-4
+  %div.card-header.bg-primary.text-white
+    Crear Municipio
+  %div.card-body
+    = render 'form', township: @township
+
+%div.mt-4
+  = link_to 'Volver', townships_path, class: 'btn btn-secondary'

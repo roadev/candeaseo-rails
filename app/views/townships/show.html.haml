@@ -1,0 +1,23 @@
+%h1.text-center.mt-4 Detalle del Municipio
+
+%div.card.shadow.mt-4
+  %div.card-header.bg-primary.text-white
+    Detalles
+  %div.card-body
+    %p
+      %strong Nombre:
+      = @township.name
+    %p
+      %strong Descripción:
+      = @township.description
+    %p
+      %strong Ciudad:
+      = @township.city.name if @township.city
+    %p
+      %strong Activo:
+      = @township.active ? "Sí" : "No"
+
+%div.mt-4
+  = link_to 'Editar', edit_township_path(@township), class: 'btn btn-warning btn-sm'
+  = link_to "Eliminar", @township, method: :delete, data: { turbo_method: "delete", confirm: "¿Estás seguro?" }, class: 'btn btn-danger btn-sm'
+  = link_to 'Volver', townships_path, class: 'btn btn-secondary btn-sm ml-2'

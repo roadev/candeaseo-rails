@@ -1,0 +1,26 @@
+%h1.text-center.mt-4 Listado de Municipios
+
+%div.table-responsive
+  %table.table.table-bordered.table-striped
+    %thead.thead-dark
+      %tr
+        %th Nombre
+        %th Descripción
+        %th Ciudad
+        %th Activo
+        %th Acciones
+
+    %tbody
+      - @townships.each do |township|
+        %tr
+          %td= township.name
+          %td= township.description
+          %td= township.city.name if township.city
+          %td= township.active ? "Sí" : "No"
+          %td
+            = link_to 'Ver', township, class: 'btn btn-primary btn-sm'
+            = link_to 'Editar', edit_township_path(township), class: 'btn btn-warning btn-sm mx-2'
+            = link_to "Eliminar", township_path(township), method: :delete, data: { turbo_method: "delete", confirm: "¿Estás seguro?" }, class: "btn btn-danger btn-sm"
+
+%div.mt-4
+  = link_to 'Nuevo Municipio', new_township_path, class: 'btn btn-success'

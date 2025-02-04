@@ -1,0 +1,23 @@
+%h1.text-center.mt-4 Detalle del Barrio
+
+%div.card.shadow.mt-4
+  %div.card-header.bg-primary.text-white
+    Detalles
+  %div.card-body
+    %p
+      %strong Nombre:
+      = @neighborhood.name
+    %p
+      %strong Descripción:
+      = @neighborhood.description
+    %p
+      %strong Municipio:
+      = @neighborhood.township.name if @neighborhood.township
+    %p
+      %strong Activo:
+      = @neighborhood.active ? "Sí" : "No"
+
+%div.mt-4
+  = link_to 'Editar', edit_neighborhood_path(@neighborhood), class: 'btn btn-warning btn-sm'
+  = link_to "Eliminar", @neighborhood, method: :delete, data: { turbo_method: "delete", confirm: "¿Estás seguro?" }, class: 'btn btn-danger btn-sm'
+  = link_to 'Volver', neighborhoods_path, class: 'btn btn-secondary btn-sm ml-2'
