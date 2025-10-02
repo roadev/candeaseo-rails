@@ -53,14 +53,14 @@ class RegionsController < ApplicationController
     @region.destroy
     redirect_to regions_path, notice: "La región fue eliminada con éxito."
   end
-  
+
 
   private
 
   def set_region
     @region = Region.find(params[:id]) # Correct usage
   end
-  
+
   def region_params
     params.require(:region).permit(:name, :description, :translations, :flag, :active)
   end

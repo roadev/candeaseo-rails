@@ -39,7 +39,7 @@ module RailsApp
     config.i18n.default_locale = :es
 
     # Limit available locales to only Spanish
-    config.i18n.available_locales = [:es]
+    config.i18n.available_locales = [ :es ]
 
     # Don't generate system test files.
     config.generators.system_tests = nil

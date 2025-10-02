@@ -24,7 +24,7 @@ class DocumentTypesController < ApplicationController
     @document_type = DocumentType.new(document_type_params)
 
     if @document_type.save
-      redirect_to document_types_path, notice: 'El tipo de documento fue creado con éxito.'
+      redirect_to document_types_path, notice: "El tipo de documento fue creado con éxito."
     else
       render :new, status: :unprocessable_entity
     end

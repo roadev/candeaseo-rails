@@ -21,7 +21,7 @@ gem "haml-rails"
 gem "simple_form"
 gem "rails-i18n"
 gem "html2haml"
-gem 'sassc-rails'
+gem "sassc-rails"
 
 
 # Use Active Model has_secure_password [https://guides.rubyonrails.org/active_model_basics.html#securepassword]
@@ -62,4 +62,3 @@ group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]
   gem "web-console"
 end
-
